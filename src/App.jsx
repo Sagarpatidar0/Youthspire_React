@@ -1,5 +1,6 @@
 // import Navbar from "./components/Navbar/Navbar";
 import ScrollingCanvas from "./components/ScrollingCanvas";
+import Canvas from "./components/canvas";
 // import Profile from "./components/profile/Profile"
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <>
       {/* <Profile/> */}
       <ScrollingCanvas />
+      {/* <Canvas/> */}
       {/* <Navbar /> */}
     </>
   );

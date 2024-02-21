@@ -1,14 +1,27 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef} from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import LocomotiveScroll from "locomotive-scroll";
 import "./ScrollingCanvas.css";
-// import "../App.css";
 
 const ScrollingCanvas = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    const getCurrentTranslate = () => {
+      if (canvasRef.current) {
+        const style = window.getComputedStyle(canvasRef.current);
+        const transform = style.getPropertyValue('transform');
+
+        const match = transform.match(/matrix\([^,]+,\s*([^,\s]+)\s*,/);
+        const translateY = match ? parseFloat(match[1]) : 10;
+        canvasRef.current.style.transform = `translateY(${100}px)`;
+        console.log(translateY-4000, canvasRef.current);
+      }
+    };
+
+
+
     function locomotive() {
       gsap.registerPlugin(ScrollTrigger);
 
@@ -384,7 +397,7 @@ const ScrollingCanvas = () => {
         scrub: 0.15,
         trigger: `canvas`,
         start: `top top`,
-        end: `600% top`,
+        end: `100% top`,
         scroller: `#main`,
       },
       onUpdate: render,
@@ -393,6 +406,7 @@ const ScrollingCanvas = () => {
     images[1].onload = render;
 
     function render() {
+      getCurrentTranslate();
       scaleImage(images[imageSeq.frame], context);
     }
 
@@ -463,7 +477,11 @@ const ScrollingCanvas = () => {
   return (
     <div id="main" data-scroll-container>
       <div id="page">
-        <canvas ref={canvasRef}></canvas>
+        <canvas
+         style={{ 
+          transition: 'transform .5s ease',
+        }}
+         ref={canvasRef}></canvas>
       </div>
       <div id="page1">
         <h1>Page1</h1>
