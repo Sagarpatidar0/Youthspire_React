@@ -1,4 +1,4 @@
-import { useEffect, useRef} from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import LocomotiveScroll from "locomotive-scroll";
@@ -11,16 +11,15 @@ const ScrollingCanvas = () => {
     const getCurrentTranslate = () => {
       if (canvasRef.current) {
         const style = window.getComputedStyle(canvasRef.current);
-        const transform = style.getPropertyValue('transform');
-
+        const transform = style.getPropertyValue("transform");
+        const scrollY = window.scrollY;
         const match = transform.match(/matrix\([^,]+,\s*([^,\s]+)\s*,/);
         const translateY = match ? parseFloat(match[1]) : 10;
-        canvasRef.current.style.transform = `translateY(${100}px)`;
-        console.log(translateY-4000, canvasRef.current);
+        canvasRef.current.style.transform = `translateY(${scrollY}px)`;
+        // console.log(translateY, match, canvasRef.current);
+        // console.log(scrollY);
       }
     };
-
-
 
     function locomotive() {
       gsap.registerPlugin(ScrollTrigger);
@@ -414,7 +413,7 @@ const ScrollingCanvas = () => {
       var canvas = ctx.canvas;
       var hRatio = canvas.width / img.width;
       var vRatio = canvas.height / img.height;
-      var ratio = Math.max(hRatio, vRatio) - 0.35;
+      var ratio = Math.max(hRatio, vRatio) - 0.5;
       var centerShift_x = (canvas.width - img.width * ratio) / 2;
       var centerShift_y = (canvas.height - img.height * ratio) / 2;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -429,6 +428,12 @@ const ScrollingCanvas = () => {
         img.width * ratio,
         img.height * ratio
       );
+
+      console.log("image height", img.height);
+      console.log("image width", img.width);
+      console.log("canvas height", canvas.height);
+      console.log("canvas width", canvas.width);
+      console.log("ratio", ratio);
     }
 
     ScrollTrigger.create({
@@ -474,14 +479,29 @@ const ScrollingCanvas = () => {
     return () => {};
   }, []);
 
+  useEffect(() => {
+    window.onload = function () {
+      canvasRef.current.style.transform = `translateY(${0}px)`;
+    };
+  });
+
+  useEffect(() => {
+    console.log("canvasRef", canvasRef);
+    console.log("innerHeight", window.innerHeight);
+    console.log("scrollY", window.scrollY);
+    console.log("outerHeight", window.outerHeight);
+    console.log("height", document.body.clientHeight);
+  }, []);
+
   return (
     <div id="main" data-scroll-container>
       <div id="page">
         <canvas
-         style={{ 
-          transition: 'transform .5s ease',
-        }}
-         ref={canvasRef}></canvas>
+          style={{
+            transition: "transform .5s ease",
+          }}
+          ref={canvasRef}
+        ></canvas>
       </div>
       <div id="page1">
         <h1>Page1</h1>
