@@ -1,17 +1,7 @@
-// import Navbar from "./components/Navbar/Navbar";
-import ScrollingCanvas from "./components/ScrollingCanvas";
-import Canvas from "./components/canvas";
-// import Profile from "./components/profile/Profile"
+import Scroller from "./components/Scroller";
 
 function App() {
-  return (
-    <>
-      {/* <Profile/> */}
-      <ScrollingCanvas />
-      {/* <Canvas/> */}
-      {/* <Navbar /> */}
-    </>
-  );
+  return <Scroller />;
 }
 
 export default App;
