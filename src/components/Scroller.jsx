@@ -14,8 +14,12 @@ const Scroller = () => {
     let ctx = gsap.context(() => {
       const getCurrentTranslate = () => {
         if (canvasRef.current) {
+          const canvasWidth = canvasRef.current.width;
+          const canvasHeight = canvasRef.current.height;
           const scrollY = window.scrollY;
-          canvasRef.current.style.paddingTop = `${scrollY}px`;
+          if (canvasWidth > canvasHeight) {
+            canvasRef.current.style.paddingTop = `${scrollY}px`;
+          }
         }
       };
 
@@ -109,7 +113,7 @@ const Scroller = () => {
         var canvas = ctx.canvas;
         var hRatio = canvas.width / img.width;
         var vRatio = canvas.height / img.height;
-        var ratio = Math.max(hRatio, vRatio) - 0.45;
+        var ratio = Math.max(hRatio, vRatio) - (hRatio > vRatio ? 0.85 : 0.35);
         var centerShift_x = (canvas.width - img.width * ratio) / 2;
         var centerShift_y = (canvas.height - img.height * ratio) / 2;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -126,12 +130,15 @@ const Scroller = () => {
         );
       }
 
+      const canvasWidth = canvas.width;
+      const canvasHeight = canvas.height;
+
       ScrollTrigger.create({
         trigger: "canvas",
         pin: true,
         scroller: `#main`,
         start: `top top`,
-        end: `800% top`,
+        end: `${canvasWidth > canvasHeight ? "800% top" : "400% top"}`,
         markers: true,
       });
     });
