@@ -8,6 +8,7 @@ function Profile() {
     const [value, setValue] = useState(false);
     return (
     <>
+    <div className="profile">
     <div className="profile-nav">
         <div className="y-logo nav-item">
             <img src="images/title/6-removebg-preview (1).png" alt="" />
@@ -34,6 +35,7 @@ function Profile() {
             }}
           />
     </button>
+    </div>
     </>
   )
 }

@@ -7,7 +7,7 @@ import "./Navbar.css";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isIcon1, setIsIcon1] = useState(true);
-  const ref = useRef()
+  const ref = useRef();
 
   const toggleIcon = () => {
     setIsIcon1(!isIcon1);
@@ -20,18 +20,16 @@ function Navbar() {
   const handleDropdownClick = () => {
     toggleDropdown();
     toggleIcon();
-    ref.current.te
+    ref.current.te;
   };
-  
 
   return (
     <>
       <div className="BgImage">
         <img src="./images/image-bg.png" />
       </div>
-      
 
-      <nav className={isOpen?"Navbar bg-trans":"Navbar"}>
+      <nav className={isOpen ? "Navbar bg-trans" : "Navbar"}>
         <div className="logo">
           <img src="./images/logo.png" />
         </div>
@@ -59,8 +57,11 @@ function Navbar() {
               </a>
             </li>
 
-            <li className="navbar-dropdown" onClick={toggleDropdown }>
-              <span>Community</span><span><IoMdArrowDropdown /></span>
+            <li className="navbar-dropdown" onClick={toggleDropdown}>
+              <span>Community</span>
+              <span>
+                <IoMdArrowDropdown />
+              </span>
               {isOpen && (
                 <ul className="dropdown-menu">
                   <li>
@@ -85,7 +86,7 @@ function Navbar() {
         </div>
 
         <div className="dropdown-toggle" onClick={handleDropdownClick}>
-        {isIcon1 ? <FaBars /> : <RxCross2 />}
+          {isIcon1 ? <FaBars /> : <RxCross2 />}
           {isOpen && (
             <ul className="dropdown-list">
               <li>
@@ -105,8 +106,8 @@ function Navbar() {
                   <button className="contact-btn">CONTACT US</button>
                 </div>
               </li>
-              
-              <li className="navbar-dropdown"  onClick={toggleDropdown}>
+
+              <li className="navbar-dropdown" onClick={toggleDropdown}>
                 <span>Community</span>
                 {isOpen && (
                   <ul className="dropdown-menu">
@@ -122,14 +123,15 @@ function Navbar() {
                   </ul>
                 )}
               </li>
-             
             </ul>
           )}
         </div>
-        
       </nav>
-      <div ref={ref} className={isOpen?"animate-out dummyImage":"animate-in dummyImage"}>
-       <img src="./images/NAV L.png"/>
+      <div
+        ref={ref}
+        className={isOpen ? "animate-out dummyImage" : "animate-in dummyImage"}
+      >
+        <img src="./images/NAV L.png" />
       </div>
     </>
   );

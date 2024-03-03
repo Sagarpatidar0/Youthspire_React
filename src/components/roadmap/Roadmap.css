@@ -1,0 +1,201 @@
+
+
+
+#journey {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Roadmap {
+    display: flex;
+    flex-direction: column;
+    width: 21rem;
+    align-items: center;
+    text-align: center;
+  
+  }
+  
+  .Roadmap-heading {
+    font-size: 4rem;
+    font-weight: 700;
+  }
+  
+   .para{
+    font-size: 1.3rem;
+    font-weight: 400;
+    word-wrap: break-word;
+    margin-bottom: 0;
+  }
+  
+  .top-heading {
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .top-heading img{
+    height: 3rem;
+    width: 3rem;
+  }
+  
+  
+  .multiple-element {
+   margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 230px;
+    align-items: center;
+  }
+
+  .multiple-element h1{
+    font-size: 1.7rem;
+    font-weight: 900;
+  }
+
+  .multiple-element p{
+    font-size: 1rem;
+    font-weight: 400;
+    word-wrap: break-word;
+  }
+  
+  
+  
+ 
+  
+  .first-2 {
+    display: flex;
+    width: 75rem;
+    flex-direction: row;
+  
+    justify-content: space-evenly;
+  }
+  
+  .Metaverse {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    text-align: justify;
+    width: 23rem;
+  }
+  
+ .Events {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    text-align: justify;
+  
+    width: 23rem;
+  }
+  
+ .last-2 {
+    display: flex;
+    width: 75rem;
+    flex-direction: row;
+    
+    justify-content: space-evenly;
+  }
+  
+  .Clone {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    text-align: justify;
+  
+    width: 23rem;
+  }
+  
+  .Access {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    text-align: justify;
+  
+    width: 23rem;
+  }
+  
+  .title {
+    width: 25rem;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    height: 5rem;
+  }
+  
+  
+
+
+
+  @media screen and (max-width: 750px) {
+
+    #journey{
+      height: 100vh;
+      width: 100vw;
+    }
+
+    #journey h1 {
+        font-size: 1.4rem;
+        font-size: 600;
+        
+      }
+    
+      .multiple-element {
+        margin-bottom: auto;
+        margin-top: 0;
+      }
+    
+      .multiple-element .first-2 {
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: fit-content;
+        align-items: center;
+        margin-top: 50px;
+      }
+
+      .top-heading #Roadmap-heading{
+        font-size: 3rem;
+      }
+    
+      .title {
+       margin-top: 1.1rem;  
+      }
+      .Metaverse {
+        margin-bottom: 2rem;
+      }
+    
+      .Events {
+        margin-bottom: 2rem;
+      }
+    
+      .Clone {
+        margin-bottom: 2rem;
+    
+        word-wrap: break-word;
+      }
+    
+     
+    
+      .last-2 {
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: fit-content;
+        align-items: center;
+      }
+    
+  }

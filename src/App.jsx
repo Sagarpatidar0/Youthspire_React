@@ -1,15 +1,16 @@
-// import Navbar from "./components/Navbar/Navbar";
-import ScrollingCanvas from "./components/ScrollingCanvas";
-import Canvas from "./components/canvas";
-// import Profile from "./components/profile/Profile"
+import Navbar from "../src/components/Navbar/Navbar"
+import RankSection from "./components/Marquee/Marquee";
+import Scroller from "./components/Scroller";
+import Header from "./components/header/Header";
+
 
 function App() {
   return (
-    <>
-      {/* <Profile/> */}
-      <ScrollingCanvas />
-      {/* <Canvas/> */}
-      {/* <Navbar /> */}
+    <>  
+     <Navbar/>
+    <Header/>
+    <Scroller />
+    <RankSection/>
     </>
   );
 }

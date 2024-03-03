@@ -1,0 +1,19 @@
+body{
+    background: #000;
+}
+#main{
+    position: relative;
+    height: 450vh;
+}
+
+#page1{
+    position: absolute;
+    color: aqua;
+    top: 50vh;
+    height: 200vh;
+}
+
+#page1>#right{
+    position: absolute;
+    bottom: 50vh;
+}
